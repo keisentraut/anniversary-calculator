@@ -1,0 +1,30 @@
+# This is an example file for anniversary.py
+# Just remove this file, and add your own important days!
+#
+# the required format should be pretty straightforward:
+# YYYY-MM-DD + space + arbitrary text
+#
+# all lines with starting with a '#' sign are ignored
+# empty lines are ignored, too
+ # this line is ignored, too, because leading/trailing whitespace is removed
+
+# family birthdays
+1971-01-22 mother
+1970-02-23 father
+1950-03-24 grandma #1
+1947-04-25 grandpa #1
+1947-05-26 grandma #2
+1947-06-27 grandpa #2
+1990-05-26 big sister
+1992-06-27 big brother (a.k.a NSA)
+1994-07-28 me 
+1996-08-29 small brother
+
+# important milestones in my life
+2009-09-11 first day at school
+2012-09-30 graduated at university
+2013-10-31 first day at Example Company
+
+# other events
+2000-01-01 millenium
+2001-09-11 WTC attacks (9/11)
