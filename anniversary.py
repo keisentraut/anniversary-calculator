@@ -3,10 +3,9 @@
 
 import datetime
 import sys
-import calendar
 
-PATH = "./data/" # must have leading /
-FILES = ["example.txt",]
+PATH = "./data/" # must have trailing /
+FILES = ["example.txt",] # feel free to add more files, if you like!
 INPUTFORMAT = "%Y-%m-%d"
 OUTPUTFORMAT = "%A, %d.%m.%Y"
 
@@ -83,16 +82,21 @@ def str2date(s):
 def date2str(d):
 	return datetime.datetime.strftime(d, OUTPUTFORMAT)
 
+def isleap(n):
+	if n%400: return True
+	if n%100: return False
+	if n%4: return True
+	return False
+
 # return length in days of month/year
 def monthLength(month, year):
 	if month == 2:
-		if calendar.isleap(year):
+		if isleap(year):
 			return 29
 		else:
 			return 28
 	if month in {1,3,5,7,8,10,12}:
 		return 31
-	
 	return 30
 
 def interestingYear(bdate, now):
