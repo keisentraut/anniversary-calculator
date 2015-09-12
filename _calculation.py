@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from anniversary import isInterestingNumberOfDays, isInterestingNumberOfMonths
+from anniversary import *
 import sys
 
 if len(sys.argv) != 3:
@@ -14,16 +14,18 @@ if start >= end:
 	print("first argument %u must be smaller then second %u" % (start,end))
 	sys.exit(1)
 
-d,m,y=0,0,0
+d,w,m,y=0,0,0,0
 for i in range(start, end):
 	if i%365 == 0: y += 1
 	if i%30 == 0 and isInterestingNumberOfMonths(i/30): m += 1
+	if i%7 == 0 and isInterestingNumberOfWeeks(i/7): w += 1
 	if isInterestingNumberOfDays(i): d+=1
 
 n = end - start
-t = d+m+y
-if d!=0: print("%4u interesting years   (one every %d days)" % (y, n/y) )	
+t = d+w+m+y
+if y!=0: print("%4u interesting years   (one every %d days)" % (y, n/y) )	
 if m!=0: print("%4u interesting months  (one every %d days)" % (m, n/m) )	
-if y!=0: print("%4u interesting days    (one every %d days)" % (d, n/d) )	
+if w!=0: print("%4u interesting weeks   (one every %d days)" % (w, n/w) )	
+if d!=0: print("%4u interesting days    (one every %d days)" % (d, n/d) )	
 if t!=0: print("%4u interesting events  (one every %d days)" % (t, n/t) ) 
 

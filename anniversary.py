@@ -64,6 +64,11 @@ def isInterestingNumberOfMonths(n):
 	if n in interestingNumbers: return True	
 	return False
 
+def isInterestingNumberOfWeeks(n):
+	if n % 100 == 0: return True
+	if n in interestingNumbers: return True	
+	return False
+
 def isInterestingNumberOfDays(n):
 	if n % 1000 == 0: return True
 	if n in interestingNumbers: return True
@@ -140,6 +145,14 @@ def interestingDay(bdate, now):
 		return days
 	return None
 
+def interestingWeek(bdate, now):
+	days = (now - bdate).days
+	if days%7 == 0:
+		weeks = days/7
+		if isInterestingNumberOfWeeks(weeks):
+			return weeks
+	return None
+
 ###############################################################################
 ###############################################################################
 ###############################################################################
@@ -187,6 +200,10 @@ if __name__ == "__main__":
 			days = interestingDay(b[0], today)	
 			if days != None:
 				daybuffer += ("%5u days   - %s\n" % (days, b[1]))
+		for b in birthdays:
+			weeks = interestingWeek(b[0], today)	
+			if weeks != None:
+				daybuffer += ("%5u weeks  - %s\n" % (weeks, b[1]))
 		for b in birthdays:
 			months = interestingMonth(b[0], today)
 			if months != None:
