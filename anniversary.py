@@ -88,9 +88,9 @@ def date2str(d):
 	return datetime.datetime.strftime(d, OUTPUTFORMAT)
 
 def isleap(n):
-	if n%400: return True
-	if n%100: return False
-	if n%4: return True
+	if n%400 == 0: return True
+	if n%100 == 0: return False
+	if n%4 == 0: return True
 	return False
 
 # return length in days of month/year
